@@ -26,6 +26,9 @@ def scrape(exe_path = chromedriver_path):
     return scraper.scrape_all_data()
 
 class Mars_Scraper:
+    """
+    This class contains code to scrape information about Mars.
+    """
     def __init__(self, exe_path = chromedriver_path):
         """
         Initializes the Mars_Scraper class and opens a new browser session.
