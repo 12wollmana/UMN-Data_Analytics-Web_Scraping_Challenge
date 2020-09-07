@@ -14,7 +14,7 @@ def scrape(exe_path = chromedriver_path):
 
     Parameters
     ----------
-    exe_path : str, optional
+    exe_path : [str], optional
             The executable path for a browser driver, by default is the chromedriver_path in config.py
 
     Returns
@@ -35,7 +35,7 @@ class Mars_Scraper:
 
         Parameters
         ----------
-        exe_path : str, optional
+        exe_path : [str], optional
             The executable path for a browser driver, by default is the chromedriver_path in config.py
         """
         self.exe_path = exe_path
