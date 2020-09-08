@@ -53,7 +53,7 @@ class Mars_Scraper:
         Opens a Chrome Browser using splinter.
         """
         executable_path = {"executable_path": self.exe_path}
-        self.browser = Browser("chrome", **executable_path, headless = False)
+        self.browser = Browser("chrome", **executable_path, headless = True)
 
     def close_browser(self):
         """
@@ -77,7 +77,7 @@ class Mars_Scraper:
         """
         browser = self.browser
         browser.visit(url)
-        time.sleep(.2) # Make sure the page is loaded before moving on.
+        time.sleep(.5) # Make sure the page is loaded before moving on.
         html = browser.html
         soup = BeautifulSoup(html)
         return soup
@@ -160,7 +160,8 @@ class Mars_Scraper:
         """
         mars_planet_profile = self.get_mars_facts_table_df()
 
-        mars_planet_profile_html = mars_planet_profile.to_html(index=False, header=False)
+        mars_planet_profile_html = mars_planet_profile.to_html(index=False, header=False, classes=["table"])
+        mars_planet_profile_html = mars_planet_profile_html.replace('border="1"', "")
 
         return mars_planet_profile_html
 
